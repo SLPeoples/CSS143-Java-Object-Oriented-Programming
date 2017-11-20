@@ -1,0 +1,15 @@
+
+public class Stack extends List{
+	public Stack(){
+		super();
+	}
+	public void push(Object obj){
+		super.append(obj);
+	}
+	public Object pop(){
+		Object retVal = super.getIndex(super.size());
+		super.remove(super.size());
+		return retVal;
+	}
+
+}

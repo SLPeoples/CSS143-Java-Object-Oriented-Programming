@@ -1,0 +1,4 @@
+SearchAlgorithm and BinSearchDriver have been modified and commented for minor testing. 
+Program functions correctly with original (unedited) SearchAlgorithm and BinSearchDriver.
+FindFile class implements a check method rather than IllegalArgumentsException because the 
+class never threw the exception and the method accomplishes the same task.

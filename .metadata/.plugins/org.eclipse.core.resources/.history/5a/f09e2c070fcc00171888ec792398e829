@@ -1,0 +1,113 @@
+
+public class Stack extends List{
+	public void push(Object obj){
+		super.append(obj);
+	}
+	public Object pop(){
+			try {
+				if(super.size() == 0)
+					throw new LinkedListException();
+			} catch (LinkedListException e) {
+				System.out.println("Cannot invoke pop() on an empty stack");
+				System.exit(0);
+			}
+		return super.remove(super.size()-1);
+	}
+	@Override
+	public void insert(Object next, int index){
+		push(next);
+	}
+	@Override
+	public Object remove(int index){
+		return pop();
+	}
+	
+	//I would not choose to override the isEmpty and indexOf methods because the
+	//Program will behave the same way in a stack and a queue.
+	public static void main(String args[]){
+		Stack a = new Stack();
+		a.push("a");
+		a.push("b");
+		System.out.println(a.toString());
+		System.out.println("popped: " +a.pop());
+		System.out.println(a.toString());
+		System.out.println("popped: " +a.pop());
+		System.out.println("the stack is empty: " +a.isEmpty());
+		//System.out.println("popped: " +a.pop()); //Out of bounds
+		a.insert("a", 1);
+		a.insert("b", 2);
+		a.insert("c", 1);
+		a.insert("d", 2);
+		System.out.println(a.toString());
+		a.remove(3);
+		System.out.println(a.toString());
+		a.remove(1);
+		System.out.println(a.toString());
+		a.append("z");
+		a.append("y");
+		a.append("x");
+		a.append("w");
+		System.out.println(a.toString());
+		System.out.println("a is empty?: "+a.isEmpty());
+		//a.remove(0); //Out of bounds
+		//a.insert("z", 5); //Out of bounds
+		System.out.println("Inserting \"a\" at position 0");
+		a.insert("a", 0);
+		System.out.println("a is empty?: "+a.isEmpty());
+		//a.insert("z", 5); //Out of bounds
+		System.out.println("a: "+a.toString());
+		//a.remove(0); //Works
+		System.out.println("Inserting \"b\" at position 1");
+		a.insert("b", 1);
+		System.out.println("a is empty?: "+a.isEmpty());
+		System.out.println("Inserting \"c\" at position 2");
+		a.insert("c", 2);
+		System.out.println("Inserting \"1\" at position 1");
+		a.insert("1", 1);
+		System.out.println("Inserting \"3\" at position 3");
+		a.insert("3", 3);
+		System.out.println("Inserting \"0\" at position 0");
+		a.insert("0", 0);
+		//a.insert("3", 77); //Out of bounds
+		System.out.println("Index of 0: " +a.indexOf("0"));
+		System.out.println("Index of a: " +a.indexOf("a"));
+		System.out.println("Index of 1: " +a.indexOf("1"));
+		System.out.println("Index of c: " +a.indexOf("c"));
+		System.out.println("Index of z: " +a.indexOf("z"));
+		System.out.println("What's at index 0? "+a.getIndex(0));
+		System.out.println("What's at index 1? "+a.getIndex(1));
+		System.out.println("What's at index 2? "+a.getIndex(2));
+		System.out.println("What's at index 3? "+a.getIndex(3));
+		//System.out.println("What's at index 77? "+a.getIndex(77));
+		System.out.println(a.size()+"; "+a.toString()); //6
+		//0, a, 1, b, 3, c
+		a.remove(0);
+		//a, 1, b, 3, c
+		System.out.println(a.size()+"; "+a.toString()); //5
+		a.remove(1);
+		//a, b, 3, c
+		System.out.println(a.size()+"; "+a.toString()); //4
+		a.remove(2);
+		//a, b, c
+		System.out.println(a.size()+"; "+a.toString()); //3
+		a.remove(2);
+		//a, b
+		System.out.println(a.size()+"; "+a.toString()); //2
+		a.remove(0);
+		//b
+		System.out.println(a.size()+"; "+a.toString()); //1
+		a.remove(0);
+		System.out.println(a.size()+"; "+a.toString()); //0
+		System.out.println("a is empty?: "+a.isEmpty());
+		//a.remove(77); //Out of bounds
+		
+		a.append("z");
+		System.out.println(a.size()+"; "+a.toString()); //1
+		a.append("y");
+		System.out.println(a.size()+"; "+a.toString()); //2
+		a.insert("a", 0);
+		System.out.println(a.size()+"; "+a.toString()); //3
+		a.append("x");
+		System.out.println(a.size()+"; "+a.toString()); //4
+	}
+}

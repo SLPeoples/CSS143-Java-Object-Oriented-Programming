@@ -1,0 +1,30 @@
+-- VERSION_4
+-- START DISKCACHE_2
+C:\Users\Ripti\Dropbox\Peoples\CSS143\.metadata\.plugins\org.eclipse.core.resources\.projects\Test\com.python.pydev.analysis\v2_indexcache
+encryption|1510459689680662000|C:\Users\Ripti\Dropbox\Peoples\CSS143\Test\encryption.py
+-- END DISKCACHE
+-- START DICTIONARY
+4
+4=BetterRandom.randint
+1=encryption
+2=BetterRandom
+3=BetterRandom.seed
+-- END DICTIONARY
+-- START TREE 1
+7
+bet|1|BetterRandom!9@
+che|1|checksum!10@
+dec|1|decrypt!10@
+enc|2|enc_flag!11@encrypt!10@
+fla|1|flag!11@
+rng|1|rng!11@
+sup|1|super_secret_key!11@
+-- END TREE
+-- START TREE 2
+5
+__i|1|__init__!2&10@
+_st|2|_state!3&11@_state!4&11@
+get|1|getstate!2&10@
+ran|1|randint!2&10@
+see|1|seed!2&10@
+-- END TREE

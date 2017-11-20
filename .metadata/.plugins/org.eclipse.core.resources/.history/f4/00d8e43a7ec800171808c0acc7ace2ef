@@ -1,0 +1,18 @@
+
+public class Test {
+	public static void main(String args[]){
+		System.out.println(writeSquares(5));
+	}
+	public static String writeSquares(int n){
+		String re = "";
+		if(n==1)
+			re+= "1, ";
+		if((n*n)%2 == 1)
+			re += (n*n)+", "+writeSquares(n-1);
+		else
+			re += (n*n)+", "+writeSquares(n-1);
+		return re;
+		
+			
+	}
+}

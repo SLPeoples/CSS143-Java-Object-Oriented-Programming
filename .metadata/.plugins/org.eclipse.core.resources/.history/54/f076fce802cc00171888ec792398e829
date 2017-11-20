@@ -1,0 +1,20 @@
+
+public class Stack extends List{
+	public void push(Object obj){
+		super.append(obj);
+	}
+	public Object pop(){
+		Object retVal = super.getIndex(super.size()-1);
+		super.remove(super.size()-1);
+		return retVal;
+	}
+	
+	public static void main(String args[]){
+		Stack a = new Stack();
+		a.push("a");
+		a.push("b");
+		System.out.println(a.toString());
+		System.out.println("popped: " +a.pop());
+		System.out.println(a.toString());
+	}
+}

@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Stack {
+	public class Node {
+		Object data = null;
+		Node next = null;
+		public Node(Object d, Node n){
+			data = d; //shallow
+			next = n;
+		}
+	}
+	public static void main(String[] args) {
+		Stack<Character> a = new Stack<Character>();
+		 // Queue<Character> q = new LinkedList<Character>();
+		a.push('R');
+		a.push('a');
+		a.push('c');
+		a.push('e');
+		//a.push('c');
+		//a.push('a');
+		a.push('r');
+		System.out.println("Size : " + a.size());
+		while(!a.isEmpty()) {
+		System.out.println(a.pop());
+		}
+		}
+
+}
