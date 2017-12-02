@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 //  InterfaceDriver
 //  CSS162
 //  By Rob Nash
+//DID NOT CHANGE
 //
 
 public class InterfaceDriver {
@@ -37,8 +38,8 @@ public class InterfaceDriver {
             //ObjectInputStream is = new ObjectInputStream( new FileInputStream("object.dat"));
             ObjectInputStream is = new ObjectInputStream(new FileInputStream("data.obj"));
             
-            StudentClass a = (StudentClass)is.readObject();  //cast is required since object is returned
-            StudentClass b = (StudentClass)is.readObject();
+            Student a = (Student)is.readObject();  //cast is required since object is returned
+            Student b = (Student)is.readObject();
             
             System.out.println("From file : " + a);
             System.out.println("From file : " + b);
@@ -55,8 +56,8 @@ public class InterfaceDriver {
         try {
             //ObjectOutputStream os = new ObjectOutputStream( new FileOutputStream("object.dat"));
             ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("data.obj"));
-            StudentClass a = new StudentClass("FileIO1", 3.0);
-            StudentClass b = new StudentClass("FileIO2", 4.0);
+            Student a = new Student("FileIO1", 3.0);
+            Student b = new Student("FileIO2", 4.0);
         
             os.writeObject(a);
             os.writeObject(b);
@@ -71,9 +72,9 @@ public class InterfaceDriver {
     }
 
     public static void comparableDemo() {
-        StudentClass a = new StudentClass("Rob", 3.0);
-        StudentClass b = new StudentClass("Bill", 4.0);
-        StudentClass c = new StudentClass("Mary", 4.0);
+        Student a = new Student("Rob", 3.0);
+        Student b = new Student("Bill", 4.0);
+        Student c = new Student("Mary", 4.0);
         
         
         System.out.println( " a compareTo b :" + a.compareTo(b));
@@ -83,8 +84,8 @@ public class InterfaceDriver {
     
     
     public static void cloneableDemo() {
-        StudentClass a = new StudentClass("Evan", 3.0);
-        StudentClass c = (StudentClass)a.clone();
+        Student a = new Student("Evan", 3.0);
+        Student c = (Student)a.clone();
         
         System.out.println(a);
         System.out.println(c);

@@ -1,7 +1,7 @@
 /*
  * A Simple Threading Application
  * Complete with race conditions, no deadlock avoidance, and minimal comments! =)
- * 
+ * Did not change
  */
 
 public class Multi implements Runnable {

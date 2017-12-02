@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Python/PythonForDataScience/11.Understanding the Tools/understandingAnaconda&apos; to &apos;understandingAnaconda.py&apos;" description="Rename resource &apos;understandingAnaconda&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="PythonForDataScience/11.Understanding the Tools/understandingAnaconda" name="understandingAnaconda.py" stamp="1511305056324" updateReferences="true"/>
+</session>

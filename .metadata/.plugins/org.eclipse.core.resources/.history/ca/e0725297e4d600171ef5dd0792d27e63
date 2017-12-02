@@ -1,0 +1,48 @@
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+
+public class MyWindow extends JFrame implements MouseListener{
+	ArrayList<Student> students = new ArrayList<Student>();
+	public MyWindow() {
+	setSize(400,400);
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	setVisible(true);
+	addMouseListener(this);
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		System.out.println("Clicked: "+e.getX()+", "+e.getY());
+		students.add(new Student("x:"+e.getX()+", y:"+e.getY(),e.getX()*e.getY()));
+		for(Student student:students)
+			System.out.println(student);
+		
+	}
+	
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}

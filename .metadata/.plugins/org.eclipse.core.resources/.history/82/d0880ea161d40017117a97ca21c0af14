@@ -1,0 +1,73 @@
+import java.awt.Color;
+
+/**
+ * Vegetable ingredient class
+ * @author Samuel L. Peoples
+ */
+public class Vegetable extends Ingredient{
+	protected Color vegColor = Color.GREEN; //Default
+	
+	/**
+	 * Empty constructor
+	 */
+	public Vegetable(){
+		super();
+	}
+	
+	/**
+	 * Constructor that does not take color
+	 * @param desc, description
+	 * @param cst, cost
+	 * @param calrs, calories
+	 */
+	public Vegetable(String desc, Money cst, int calrs){
+		super(desc,cst,calrs);
+	}
+	
+	/**
+	 * Constructor that takes a default color
+	 * @param desc, description
+	 * @param cst, cost
+	 * @param calrs, calories
+	 * @param clr, color
+	 */
+	public Vegetable(String desc, Money cst, int calrs, Color clr){
+		super(desc,cst,calrs);
+		setColor(clr);
+	}
+	
+	/**
+	 * Setter for color
+	 * @param clr
+	 */
+	public void setColor(Color clr){
+		this.vegColor = clr;
+	}
+	
+	/**
+	 * getter for color
+	 * @return this vegColor
+	 */
+	public Color getColor(){
+		return this.vegColor;
+	}
+	
+	/**
+	 * Overrides toString method
+	 * @return description, cost, calories, color
+	 */
+	public String toString(){
+		return super.toString()+", Color: "+this.getColor();
+	}
+
+	/**
+	 * Overrides equals method
+	 * @return true if elements equal 
+	 */
+	public boolean equals(Vegetable other){
+		if(super.equals(other) && this.getColor().equals(other.getColor()))
+			return true;
+		else return false;
+	}
+	
+}

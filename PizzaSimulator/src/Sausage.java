@@ -1,0 +1,23 @@
+
+/**
+ * Meat ingredient class
+ * @author Samuel L. Peoples, 1527650
+ */
+public class Sausage extends Meat{
+	/**
+	 * Empty constructor
+	 */
+	public Sausage(){
+		super();
+	}
+	
+	/**
+	 * Constructor that does not take color
+	 * @param desc, description
+	 * @param cst, cost
+	 * @param calrs, calories
+	 */
+	public Sausage(String desc, Money cst, int calrs){
+		super(desc,cst,calrs);
+	}
+}

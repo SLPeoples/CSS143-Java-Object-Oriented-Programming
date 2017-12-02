@@ -1,0 +1,144 @@
+//package pizzaMainClasses;
+import java.util.Scanner;
+
+/*  PizzaManager Skeleton File
+ *  CSS 143, Final Project
+ * 
+ *  This class is a starting point for your final project and is incomplete.
+ *  Start by reading the documentation(comments), and then the code.  Find the 
+ *  empty stub methods you are to fill in using a Top-Down approach (see the
+ *  assignment for more information on this and Stepwise Refinement)
+ * 
+ *  Author: Rob Nash with minor edits by Johnny Lin
+ */
+
+public class PizzaManager {
+    private ArrayList pizzas = new ArrayList();
+    /* 
+     * The console interface is defined in the start method 
+     * You can exit or extend the code below to accomplish all of 
+     * the outcomes defined in the homework document
+     */
+    public void start() {
+        char selection='q';
+        
+        Scanner foo = new Scanner(System.in);
+        
+        while(true) {
+            displayAllPizzas();
+            displayInstructions();
+            
+             selection = foo.next().charAt(0);
+             //foo.nextChar() doesn't exist, so now what?
+            
+            switch(selection) {
+                case 'A':    
+                case 'a':    System.out.println("Adding a random pizza to the ArrayList<Pizza>.");
+                                addRandomPizza();
+                                break;
+                case 'H':    
+                case 'h':    System.out.println("Adding one hundred random pizzas to the ArrayList<Pizza>.");
+                                for(int i=0;i<=100;i++)
+                                	addRandomPizza();
+                                break;                    
+                case 'E':    
+                case 'e':    System.out.println("Eating a fraction of a pizza. How much? (a/b)");
+                                eatSomePizza(foo);
+                                break;            
+                case 'P':    
+                case 'p':     System.out.println("Sorting pizzas by (P)rice");
+                				  sortByPrice();
+                                  break;    
+                case 'S':    
+                case 's':     System.out.println("Sorting pizzas by (S)ize");
+                			     sortBySize();
+                                 break;          
+                case 'C':    
+                case 'c':      System.out.println("Sorting pizzas by (C)alories");
+                			      sortByCalories();
+                                  break;
+                case 'B':
+                case 'b':    System.out.println("(B)inary search over pizzas by calories(int).  Sorting first.  What calorie count are you looking for?");
+					                //binarySearchByCalories(int cals);
+                case 'Q':
+                case 'q':    System.out.println("(Q)uitting!" );
+                                System.exit(0);
+                default:    System.out.println("Unrecognized input - try again");
+            }
+        }
+
+    }
+    
+    private void eatSomePizza(Scanner keys) {
+    	//Try catch for wrong input
+    	String input = keys.next();
+		String[] input1 = input.split("/", 2);	
+		int num = Integer.parseInt(input1[0]);
+		int dem = Integer.parseInt(input1[1]);
+		System.out.println("At which index?");
+		int index = keys.nextInt();
+		try{
+			if(pizzas.isEmpty())
+				throw new PizzaException();
+			((Pizza) pizzas.get(index)).eatSomePizza(new Fraction(num,dem));
+			if (((Pizza) pizzas.get(index)).getRemianingArea() == 0)
+				if(pizzas.size() == 1)
+					 pizzas = new ArrayList();
+				else pizzas.remove(index);
+		}
+		catch(PizzaException e){
+			System.out.println("You don't have any pizza!");
+		}
+    }
+    
+    private void addRandomPizza() {
+    	pizzas.add(new Pizza()); 
+    }
+
+    private void displayAllPizzas() {
+    	try{
+    		if(pizzas.isEmpty())
+    			throw new PizzaException();
+    		for(Object pizza:pizzas)
+    		System.out.println(((Pizza) pizza).toString());
+    	}
+    	catch(PizzaException e){
+    		System.out.println("No Pizzas.");
+    	}
+    }
+
+    private void sortByPrice() {  
+        //todo:
+    }
+    
+    private void sortBySize() {
+        //todo:
+    }
+    
+    private void sortByCalories() {
+        //todo:
+    }
+    
+    private int binarySearchByCalories(int cals) {
+        //todo:
+        return -1;
+    }
+    
+    /*
+     * No need to edit functions below this line, unless extending the menu or
+     * changing the instructions
+     */
+    private static final String instructions = "-----------------------\nWelcome to PizzaManager\n-----------------------\n(A)dd a random pizza\nAdd a (H)undred random pizzas\n(E)at a fraction of a pizza\nSort pizzas by (P)rice\nSort pizzas by (S)ize\nSort pizzas by (C)alories\n(B)inary Search pizzas by calories\n(Q)uit\n";
+
+    private void displayInstructions() {
+        System.out.println(instructions);    
+    }
+
+
+    /*
+     * Notice the one-line main function.
+     */
+    public static void main(String[] args) {
+        new PizzaManager().start();
+    }
+}

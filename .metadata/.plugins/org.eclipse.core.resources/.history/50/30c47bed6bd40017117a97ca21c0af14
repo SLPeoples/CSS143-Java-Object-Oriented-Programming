@@ -1,0 +1,23 @@
+
+/**
+ * @author Samuel L. Peoples, 1527650
+ * Mozzarella ingredient class
+ */
+public class Mozzarella extends Cheese{
+	/**
+	 * Empty constructor
+	 */
+	public Mozzarella(){
+		super();
+	}
+	
+	/**
+	 * Constructor that does not take color
+	 * @param desc, description
+	 * @param cst, cost
+	 * @param calrs, calories
+	 */
+	public Mozzarella(String desc, Money cst, int calrs){
+		super(desc,cst,calrs);
+	}
+}

@@ -2,37 +2,37 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="getIndex" key="selection"/>
+		<item value="IntList" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="getIndex"/>
-			<item value="get"/>
-			<item value="list"/>
-			<item value="NullPointerException"/>
-			<item value="LLStack"/>
-			<item value="deleteHead"/>
-			<item value="addToStart"/>
-			<item value="this."/>
+			<item value="array"/>
+			<item value="input"/>
+			<item value="arr"/>
+			<item value="runClass"/>
+			<item value="hello"/>
+			<item value="StudentClass"/>
+			<item value="Alfredo"/>
+			<item value="Vegetable"/>
 		</list>
 		<list key="replacehistory">
-			<item value="a"/>
-			<item value="LinkedListException"/>
-			<item value="List"/>
-			<item value="pop"/>
-			<item value="push"/>
-			<item value="dequeue"/>
-			<item value="LLQueue"/>
-			<item value="enqueue"/>
+			<item value="IntList"/>
+			<item value="RunClass"/>
+			<item value="Student"/>
+			<item value="Pepper"/>
+			<item value="Olive"/>
+			<item value="Mozzarella"/>
+			<item value="Meat"/>
+			<item value="Marinara"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="284" key="DIALOG_WIDTH"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="1003" key="DIALOG_X_ORIGIN"/>
-		<item value="335" key="DIALOG_Y_ORIGIN"/>
+		<item value="865" key="DIALOG_X_ORIGIN"/>
+		<item value="135" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

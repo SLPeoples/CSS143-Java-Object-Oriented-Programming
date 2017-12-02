@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+
+public class QuizTracker implements Cloneable{
+	ArrayList<QuizScore> quizzes;
+	public QuizTracker(){
+		this.quizzes = new ArrayList<QuizScore>();
+	}
+	
+	public QuizTracker(ArrayList<QuizScore> qzz){
+		this.quizzes = qzz;
+	}
+	
+	public void add(QuizScore scr){
+		quizzes.add(scr.clone());
+	}
+	
+	public QuizTracker clone(){
+		ArrayList<QuizScore> quizzes2 = new ArrayList<>();
+		for(QuizScore scr:this.quizzes){
+			quizzes2.add(scr.clone());
+		}
+		return new QuizTracker(quizzes2);
+	}
+}

@@ -1,31 +1,37 @@
-Description
+#Description
 In this assignment, we’ll tie together multiple software techniques we’ve learned throughout the quarter.  We’ll reuse our Fractions, Shapes, and other classes as well as our data structures to build a fully functioning pizza sales simulator program that would power a vending machine similar to what’s pictured.   Be sure to build each method using the name, arguments, and return value as indicated in each class.  For example, do not rename the Fraction Class to MyFraction or the “public void eatSomePizza(Fraction f)” to “private boolean reducePizza(Object o)”.  For a complete execution, see the sample output later on in this document.
 
 This is a big project: Do not wait till the last minute to start it!:
 
-Level of Challenge: Hard.
-Number of classes/files to submit: 10-20
-Number of inheritance Hierarchies: 3 complete hierarchies involving Shapes, Ingredients, & Pizzas.
-pizza_image.png
+*Level of Challenge: Hard.
+*Number of classes/files to submit: 10-20
+*Number of inheritance Hierarchies: 3 complete hierarchies involving Shapes, Ingredients, & Pizzas.
+*pizza_image.png
 
-Files to Submit
-The Pizza Class
-The PizzaManager Class (driver & test code)
-Ingredient Class Hierarchy (13 classes)
-The PizzaException Class
-Any other dependencies needed for the program to work
-Please submit a zip archive with all your files inside.  If you're not sure how to do this, please do a web search on "creating zip archives" or something similar.  Give yourself enough time to do this before the due date of the assignment!
+#Files to Submit
+*The Pizza Class
+*The PizzaManager Class (driver & test code)
+*Ingredient Class Hierarchy (13 classes)
+*The PizzaException Class
+*Any other dependencies needed for the program to work
+*Please submit a zip archive with all your files inside.  If you're not sure how to do this, please do a web search on "creating zip archives" or something similar.  Give yourself enough time to do this before the due date of the assignment!
 
 Diagram and Code Files
+
 Ingredient Hierarchy diagram:  View in a new window
+
 Driver file: PizzaManager.javaPreview the documentView in a new window Preview the documentView in a new windowView in a new window
+
 PizzaComparable file: PizzaComparable.javaPreview the documentView in a new window Preview the documentView in a new windowView in a new window
+
 Top-Down Design & Stepwise Refinement
+
 We’ll build components of our Pizza Simulator one piece at a time, building each component in steps.  By refining each component in stages, we can incrementally build logic and test it in isolation as we progress, before combining the components into our complete Pizza solution.  We’ll often start by examining an inheritance hierarchy and realizing that hierarchy in Java code by building each class one at a time, starting with parent classes.  This approach essentially captures the “big picture” first (the top levels or classes in our inheritance hierarchy) and fills in the specific details as you flesh out classes farther and farther down the hierarchy.  We can also build each class using a “Top-Down” approach where we first define each method we are to have as empty stubs and verify this compiles with the driver, and then fill in the missing details in each function as you progress.  In each of the examples, you’re starting with a broad picture that lacks details just like the first few iterations of your Top-Down Stepwise Refinement exercises using pseudocode.  As build each method and class, you move your overall solution ahead one or more steps while practicing software design techniques called Top-Down Design and Stepwise Refinement.
 
 In the sections below, we start by describing the components of the project that utilize classes we've built/used before, revised and reused. Next, we describe those components that are new classes. Finally, we outline the class invariants for the project and finish with notes to be aware of. As you read the assignment description, you'll want to also have the PizzaManager class and PizzaComparable interface code and comments alongside.
 
 Classes to Reuse
+
 These classes we will assume you have standing by to use in this final project.  They are taken from your previous homework assignments and labs, and can be recreated from scratch if you have lost them. 
 
 Find or create a Fraction class that manages a numerator and denominator with reduction.

@@ -1,0 +1,19 @@
+
+public class Meat extends Ingredient{
+	/**
+	 * Empty constructor
+	 */
+	public Meat(){
+		super();
+	}
+	
+	/**
+	 * Constructor that does not take color
+	 * @param desc, description
+	 * @param cst, cost
+	 * @param calrs, calories
+	 */
+	public Meat(String desc, Money cst, int calrs){
+		super(desc,cst,calrs);
+	}
+}

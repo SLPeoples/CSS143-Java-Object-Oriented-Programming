@@ -1,0 +1,19 @@
+
+public class QuizScore implements Cloneable{
+	private int score;
+	public QuizScore(int scr){
+		this.score = scr;
+	}
+	
+	public void setScore(int scr){
+		this.score = scr;
+	}
+	
+	public int getScore(){
+		return this.score;
+	}
+	
+	public QuizScore clone(){
+		return new QuizScore(this.score);
+	}
+}

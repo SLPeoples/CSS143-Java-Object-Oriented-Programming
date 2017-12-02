@@ -1,0 +1,19 @@
+
+public class Cheese extends Ingredient{
+	/**
+	 * Empty constructor
+	 */
+	public Cheese(){
+		super();
+	}
+	
+	/**
+	 * Constructor that does not take color
+	 * @param desc, description
+	 * @param cst, cost
+	 * @param calrs, calories
+	 */
+	public Cheese(String desc, Money cst, int calrs){
+		super(desc,cst,calrs);
+	}
+}

@@ -1,0 +1,35 @@
+import java.awt.Color;
+
+/**
+ * @author Samuel L. Peoples
+ * Olive ingredient class
+ */
+public class Olive extends Vegetable{
+	/**
+	 * Empty constructor
+	 */
+	public Olive(){
+		super();
+	}
+	
+	/**
+	 * Constructor that does not take color
+	 * @param desc, description
+	 * @param cst, cost
+	 * @param calrs, calories
+	 */
+	public Olive(String desc, Money cst, int calrs){
+		super(desc,cst,calrs);
+	}
+	
+	/**
+	 * Constructor that takes a default color
+	 * @param desc, description
+	 * @param cst, cost
+	 * @param calrs, calories
+	 * @param clr, color
+	 */
+	public Olive(String desc, Money cst, int calrs, Color clr){
+		super(desc,cst,calrs,clr);
+	}
+}

@@ -1,0 +1,19 @@
+
+public class Base extends Ingredient{
+	/**
+	 * Empty constructor
+	 */
+	public Base(){
+		super();
+	}
+	
+	/**
+	 * Constructor that does not take color
+	 * @param desc, description
+	 * @param cst, cost
+	 * @param calrs, calories
+	 */
+	public Base(String desc, Money cst, int calrs){
+		super(desc,cst,calrs);
+	}
+}

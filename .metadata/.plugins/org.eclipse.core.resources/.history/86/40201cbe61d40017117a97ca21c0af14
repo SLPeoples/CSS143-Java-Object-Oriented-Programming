@@ -1,0 +1,112 @@
+
+/**
+ * @author Samuel L. Peoples
+ * Ingrediate superclass
+ */
+public class Ingredient implements Comparable<Ingredient>{
+	private String description;
+	private Money cost;
+	private int calories;
+	
+	/**
+	 * Ingredient noArg constructor
+	 */
+	public Ingredient(){
+		this.setDescription("None");
+		this.setCost(new Money(0,0));
+		this.setCalories(0);
+	}
+	
+	/**
+	 * Ingredient constructor
+	 * @param desc, String description
+	 * @param cst, Money cost
+	 * @param calrs, int calories
+	 */
+	public Ingredient(String desc, Money cst, int calrs){
+		this.setDescription(desc);
+		this.setCost(cst);
+		this.setCalories(calrs);
+	}
+	
+	/**
+	 * Setter for description
+	 * @param desc, String description
+	 */
+	private void setDescription(String desc){
+		this.description = desc;
+	}
+	
+	/**
+	 * Setter for Cost
+	 * @param cst, Money cost
+	 */
+	private void setCost(Money cst){
+		this.cost = cst;
+	}
+
+	/**
+	 * Setter for calories
+	 * @param calrs, int calories
+	 */
+	private void setCalories(int calrs){
+		this.calories = calrs;
+	}
+	
+	/**
+	 * getter for description
+	 * @return this description
+	 */
+	public String getDescription(){
+		return this.description;
+	}
+	
+	/**
+	 * getter for cost
+	 * @return this cost
+	 */
+	public Money getCost(){
+		return this.cost;
+	}
+	
+	/**
+	 * getter for calories
+	 * @return this calories
+	 */
+	public int getCalories(){
+		return this.calories;
+	}
+	
+	/**
+	 * Overrides toString method
+	 * @return description, cost, calories 
+	 */
+	public String toString(){
+		return this.description+", $"+this.cost+"; "+this.calories+" calories.";
+	}
+
+	/**
+	 * Overrides equals method
+	 * @return true if elements equal 
+	 */
+	public boolean equals(Ingredient other){
+		if(this.getDescription().equals(other.getDescription())
+				&&this.getCost() == other.getCost()
+				&& this.getCalories() == other.getCalories())
+			return true;
+		else return false;
+	}
+	
+	/**
+	 * Overrides compareto method
+	 * @return comparison of Money objects 
+	 */
+	@Override
+	public int compareTo(Ingredient other) {
+		return this.getCost().compareTo(other.getCost());
+	}
+
+	
+
+
+}

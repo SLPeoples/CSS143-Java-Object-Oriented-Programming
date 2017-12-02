@@ -1,0 +1,159 @@
+import java.awt.Color;
+
+public class Pizza implements PizzaComparable{
+	protected ArrayList ingredients = new ArrayList();
+	protected Shape pizzaShape;
+	protected Money cost = new Money(0,0);
+	protected int calories = 0;
+	protected Fraction remaining = new Fraction(1,1);
+	
+	public Pizza(){
+		//Checks between 1 and 2, determines shape
+		if (((Math.random() <= 0.5) ? 1 : 2) == 1)
+			this.setShape(new Square(1,1,getRandInt()));
+		else
+			this.setShape(new Circle(1,1,getRandInt()));
+		//Determines a random number of ingredients to add
+		int ingredientsNum = getRandInt()/10;
+		for(int i=0;i<ingredientsNum;i++)
+			addIngredients();
+		
+
+	}
+	private void addIngredients(){
+		switch( ( int )(Math.random() * 8) ) {
+		
+		case 0: 	addIngredient(new Sausage("Sausage", new Money(getRandInt(),getRandInt()), getRandInt()));
+					break;
+		case 1: 	addIngredient(new Pepperoni("Pepperoni", new Money(getRandInt(),getRandInt()), getRandInt()));
+					break;
+		case 2: 	addIngredient(new Pepper("Pepper", new Money(getRandInt(),getRandInt()), getRandInt(), getRandColor()));
+					break;
+		case 3: 	addIngredient(new Olive("Olive", new Money(getRandInt(),getRandInt()), getRandInt(), getRandColor()));
+					break;				
+		case 4: 	addIngredient(new Mozzarella("Mozzarella Cheese", new Money(getRandInt(),getRandInt()), getRandInt()));
+					break;
+		case 5: 	addIngredient(new Marinara("Marinara Sauce", new Money(getRandInt(),getRandInt()), getRandInt()));
+					break;
+		case 6: 	addIngredient(new Alfredo("Alfredo Sauce", new Money(getRandInt(),getRandInt()), getRandInt()));
+					break;
+		case 7: 	addIngredient(new Goat("Goat Cheese", new Money(getRandInt(),getRandInt()), getRandInt()));
+					break;				
+		}
+	}
+	/**
+	 * @return rand int
+	 */
+	public int getRandInt() {
+		return ( (int) ( Math.random() * 200 ) );	
+	}
+	/**
+	 * @return retval, random choice between RGBY
+	 */
+	public Color getRandColor(){
+		Color retVal = null;
+		switch( ( int )(Math.random() * 4) ) {
+		
+		case 0: 	retVal = Color.BLUE;
+					break;
+		case 1: 	retVal = Color.GREEN;
+					break;
+		case 2: 	retVal = Color.RED;
+					break;
+		case 3: 	retVal = Color.YELLOW;
+					break;				
+	}
+	return retVal;
+	}
+	
+
+	public void setShape(Shape s) { 
+		this.pizzaShape = (Shape)s.clone();
+	}
+	
+	public Shape getShape() {
+		return (Shape) pizzaShape.clone();
+	}
+	
+	public void setPizzaShape(Shape shp){
+		this.pizzaShape = shp;
+	}
+	public void setRemaining(Fraction f){
+		Fraction retVal = new Fraction((int) (((double)this.remaining.getNumerator()* (double)f.getDenominator())-((double)this.remaining.getDenominator()* (double)f.getNumerator())), this.remaining.getDenominator()*f.getDenominator());
+		String retValString = retVal.reduceFraction(retVal.getNumerator(), retVal.getDenominator());
+		String[] input1 = retValString.split("/", 2);	
+		int num = Integer.parseInt(input1[0]);
+		int dem = Integer.parseInt(input1[1]);
+		this.remaining = new Fraction(num,dem);
+	}
+	public Fraction getRemaining(){
+		return (this.remaining);
+	}
+	public double getRemianingArea(){
+		return this.getShape().getArea()*((double)this.remaining.getNumerator()/(double)this.remaining.getDenominator());
+	}
+
+	public Money getCost(){
+		return this.cost;
+	}
+	public int getCalories(){
+		return this.calories;
+	}
+	
+	public int compareTo(Object other) {
+		return this.getCost().compareTo(((Pizza) other).getCost());
+	}
+	@Override
+	public int compareToBySize(Object o) {
+		if(this.getShape().getArea() > ((Pizza) o).getShape().getArea())
+			return 1;
+		else if(this.getShape().getArea() == ((Pizza) o).getShape().getArea())
+			return 0;
+		else return -1;
+	}
+	@Override
+	public int compareToByCalories(Object o) {
+		if(this.getCalories() > ((Pizza) o).getCalories())
+			return 1;
+		else if(this.getCalories() == ((Pizza) o).getCalories())
+			return 0;
+		else return -1;
+	}
+	
+	void addIngredient(Ingredient a){
+		ingredients.add(a);
+		this.calories += a.getCalories();
+		this.cost.add(a.getCost());
+	}
+	
+	void eatSomePizza(Fraction amt){
+		//double attemptToEat = (amt.getNumerator()/amt.getDenominator())*pizzaShape.getArea();
+		try{
+			if(this.getRemaining().compareTo(amt) == -1)
+				throw new NotEnoughPizzaException();
+			try{
+				if(this.getRemaining().compareTo(amt) == 0)
+					throw new PizzaException();
+				else
+					this.setRemaining(amt);
+			}
+			catch(PizzaException e){
+				System.out.println("All the pizza is gone.");
+				this.setRemaining(new Fraction(0,1));
+			}
+		}
+		catch(NotEnoughPizzaException e){
+			System.out.println("You can't eat pizza that isn't there!");
+			System.exit(0);
+		}
+	}
+	
+	public String toString(){
+		return  "Pizza has a price: "
+				+this.getCost().toString()+" and calories: "
+				+this.getCalories()+", Fraction remaining: "
+				+this.getRemaining()+" with area remaining: "
+				+this.getRemianingArea()+" of shape: "
+				+this.getShape();
+	}
+}
