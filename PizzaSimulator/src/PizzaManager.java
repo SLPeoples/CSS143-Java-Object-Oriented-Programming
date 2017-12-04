@@ -197,7 +197,7 @@ public class PizzaManager {
         }
         if(((Pizza)pizzas.get(0)).getCalories() > ((Pizza)pizzas.get(0)).getCalories() ||
         		((Pizza)pizzas.get(pizzas.size()-1)).getCalories() < ((Pizza)pizzas.get(pizzas.size()-2)).getCalories())
-        	sortByCalories(); //Sometimes things get out of order. This mitigates that issue to some degree.
+        	sortByCalories(); //Sometimes things get out of order. This mitigates that issue if an error is made.
     }
     
     /**
@@ -208,12 +208,12 @@ public class PizzaManager {
      */
     private int findSmallestClrs(int start, int end) {
 		int minIndex = start;
-		for(int i = start; i< end; i++){
-			if(((Pizza) pizzas.get(start+1)).getCalories() >((Pizza) pizzas.get(start)).getCalories()){
-				minIndex = start+1;
+		for(int i = start+1; i< end; i++){
+			if(((Pizza) pizzas.get(i)).getCalories() > ((Pizza) pizzas.get(start)).getCalories()){
+				minIndex = start;
 			}
 			else
-				minIndex = start;
+				minIndex = i;
 		}
 		return minIndex;
 	}
