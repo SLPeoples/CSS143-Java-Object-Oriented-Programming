@@ -2,7 +2,14 @@ import java.awt.Color;
 
 /**
  * @author Samuel L. Peoples, 1527650
- * Pizza class
+ * Pizza class. Creates a pizza made of ingredients which range from bases, vegetables, meats, and cheeses.
+ * Bases include Marinara and Alfredo
+ * Vegetables include Olives and Peppers
+ * Meats include Sausage and Pepperoni
+ * Cheeses include Goat and Mozzarella
+ * The program will determine a random cost based on a random number of random ingredients.
+ * Pizzas will be round or square, and some vegetables may be oddly colored.
+ * Users may eat the pizza, but it will disappear quickly.
  */
 public class Pizza implements PizzaComparable{
 	protected ArrayList ingredients = new ArrayList();
@@ -126,18 +133,22 @@ public class Pizza implements PizzaComparable{
 
 	/**
 	 * determines the total cost of the pizza
-	 * @return this cost
+	 * @return this cost * this remianing
 	 */
 	public Money getCost(){
 		double temp = this.cost.getMoney();
-		//System.out.println("the cost is: "+temp);
 		double retVal = (temp*this.getRemaining().getNumerator())/this.getRemaining().getDenominator();
-		//System.out.println("the remaining cost is: "+retVal);
-		int numerator = (int) retVal;
-		//System.out.println("the numerator is: "+numerator);
-		int denominator = (int) ((retVal-numerator)*100);
-		//System.out.println("the denominator is: "+denominator);
-		return new Money(numerator, denominator);
+		//round the double to get just the int value
+		int dol = (int) retVal;
+		//then take the decimal, move it over two places, and shave off the rest.
+		int cen = (int) ((retVal-dol)*100);
+		//100.204348 -> 
+			//dol = int(100.204348) = 100
+				//100.204348 - 100 = .204348
+				//.204348 * 100 = 20.4348
+			//cen = int(20.4348) = 20
+		//return new Money(100,20)
+		return new Money(dol, cen);
 	}
 	
 	/**getter for total calories of the pizza

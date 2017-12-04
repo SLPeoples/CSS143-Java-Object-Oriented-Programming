@@ -1,18 +1,20 @@
 //package pizzaMainClasses;
 import java.util.Scanner;
 
-/**  PizzaManager Skeleton File
- *  CSS 143, Final Project
- * 
- *  This class is a starting point for your final project and is incomplete.
- *  Start by reading the documentation(comments), and then the code.  Find the 
- *  empty stub methods you are to fill in using a Top-Down approach (see the
- *  assignment for more information on this and Stepwise Refinement)
- * 
- *  Author: Rob Nash with minor edits by Johnny Lin
+/**  
+    	//PizzaManager Skeleton File
+    	//CSS 143, Final Project
+   
+	    This class is a starting point for your final project and is incomplete.
+	    Start by reading the documentation(comments), and then the code.  Find the 
+	    empty stub methods you are to fill in using a Top-Down approach (see the
+	    assignment for more information on this and Stepwise Refinement)
+	  
+	    Author: Rob Nash with minor edits by Johnny Lin
  *  
  *  @author Samuel L. Peoples
- *  Completion of the PizzaManager and subclasses
+ *  Completion of the PizzaManager and subclasses.
+ *  Utilization of binary searches, and selection/ insertion sorts.
  */
 
 public class PizzaManager {
@@ -67,8 +69,15 @@ public class PizzaManager {
                                   break;
                 case 'B':
                 case 'b':    System.out.println("(B)inary search over pizzas by calories(int).  Sorting first.  What calorie count are you looking for?");
-					              int cals = foo.nextInt();
-                				  System.out.println("Found a pizza with "+cals+" calories at position "+binarySearchByCalories(cals));
+                				  try{
+					        			if(pizzas.isEmpty())
+					        				throw new PizzaException();
+					        			int cals = foo.nextInt();
+		                				  System.out.println("Found a pizza with "+cals+" calories at position "+binarySearchByCalories(cals));
+					        		}
+					        		catch(PizzaException e){}
+					        			//this will still say "no pizzas", 
+					        			//will getcaught when pizzaManager displays the empty list
 					              break;
                 case 'Q':
                 case 'q':    System.out.println("(Q)uitting!" );
@@ -86,31 +95,30 @@ public class PizzaManager {
     private void eatSomePizza(Scanner keys) {
     	//Try catch for wrong input
     	try{
-	    	String input = keys.next();
-			if(input.length() <2)
-				throw new PizzaException();
-	    	String[] input1 = input.split("/", 2);	
-			int num = Integer.parseInt(input1[0]);
-			int dem = Integer.parseInt(input1[1]);
-			System.out.println("At which index?");
-			int index = keys.nextInt();
-			//another try catch for eating pizza that isn't there
-			try{
-				if(pizzas.isEmpty())
+    		if(pizzas.isEmpty())
+    			throw new PizzaException();
+	    	try{
+	    		String input = keys.next();
+				if(input.length() <2)
 					throw new PizzaException();
+		    	String[] input1 = input.split("/", 2);	
+				int num = Integer.parseInt(input1[0]);
+				int dem = Integer.parseInt(input1[1]);
+				System.out.println("At which index?");
+				int index = keys.nextInt();
 				((Pizza) pizzas.get(index)).eatSomePizza(new Fraction(num,dem));
 				if (((Pizza) pizzas.get(index)).getRemianingArea() == 0)
 					if(pizzas.size() == 1)
 						 pizzas = new ArrayList();
 					else pizzas.remove(index);
-			}
-			catch(PizzaException e){
-				System.out.println("You don't have any pizza!");
+	    	}
+	    	catch(PizzaException e){
+				System.out.println("That's not the right input!");
 			}
     	}
-    	catch(PizzaException e){
-			System.out.println("That's not the right input!");
-		}
+    	catch(PizzaException e){}
+    	//this will still say "no pizzas", 
+		//will getcaught when pizzaManager displays the empty list
     }
     
     /**
@@ -141,6 +149,8 @@ public class PizzaManager {
      * calls compareto for money comparisons
      */
     private void sortByPrice() {  
+    	if(pizzas.isEmpty())
+    		return;
     	for(int i = 1; i < pizzas.size(); i++){
         	Pizza current = ((Pizza) pizzas.get(i));
         	int j = i-1;
@@ -158,6 +168,8 @@ public class PizzaManager {
      * checks the size, utilizes removes and inserts
      */
     private void sortBySize() {
+    	if(pizzas.isEmpty())
+    		return;
     	for(int i = 1; i < pizzas.size(); i++){
         	Pizza current = ((Pizza) pizzas.get(i));
         	int j = i-1;
@@ -174,7 +186,9 @@ public class PizzaManager {
      * Selection sort based on calories
      */
     private void sortByCalories() {
-        for(int i = 0; i < pizzas.size() - 1; i++){
+    	if(pizzas.isEmpty())
+    		return;
+    	for(int i = 0; i < pizzas.size() - 1; i++){
         	int index = findSmallestClrs(i, pizzas.size());
         	for (int j = i + 1; j < pizzas.size(); j++)
         		if(((Pizza) pizzas.get(j)).getCalories() < ((Pizza) pizzas.get(index)).getCalories())

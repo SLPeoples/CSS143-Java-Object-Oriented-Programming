@@ -2,7 +2,7 @@ import java.awt.Color;
 
 /**
  * @author Samuel L. Peoples
- * Ingrediate superclass
+ * Ingredient superclass
  */
 public abstract class Ingredient implements Comparable<Ingredient>{
 	private String description;
@@ -107,6 +107,10 @@ public abstract class Ingredient implements Comparable<Ingredient>{
 		return this.getCost().compareTo(other.getCost());
 	}
 
+	/**
+	 * testing various ingredients
+	 * @param args
+	 */
 	public static void main(String args[]){
 		Ingredient[] ingredients = new Ingredient[15];
 		ingredients[0] = new Meat();
