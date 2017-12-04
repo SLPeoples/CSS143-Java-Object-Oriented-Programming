@@ -273,4 +273,18 @@ public class ArrayList implements Iterable<Object>{
 	public Iterator<Object> iterator() {
 		return new MyIterator<Object>(this.array);
 	}
+	
+    /**
+     * swaps elements in array
+     * @param index1, index to swap
+     * @param index2, index to swap
+     */
+    public void swap(int index1, int index2){
+    	Object swap = this.get(index1);  
+    	this.insert(this.get(index2), index1);
+    	this.remove(index1+1);
+    	this.insert(swap, index2);
+    	this.remove(index2+1);
+    }
+
 }

@@ -39,8 +39,8 @@ public class Pepper extends Vegetable{
 	 */
 	public static void main(String args[]){
 		Pepper empty = new Pepper();
-		Pepper notEmpty = new Pepper("notEmpty",new Money(1,1),300);
-		Pepper notEmpty2 = new Pepper("notEmpty",new Money(1,1),300);
+		Pepper notEmpty = new Pepper("notEmpty",new Money(1,1),300, Color.black);
+		Pepper notEmpty2 = new Pepper("notEmpty",new Money(1,1),300, Color.black);
 		System.out.println(empty.toString()+"\n"+notEmpty.toString()+"\n" +notEmpty2.toString()+"\n" );
 		System.out.println(empty.equals(notEmpty)+"\n" +notEmpty.equals(notEmpty2));
 	}

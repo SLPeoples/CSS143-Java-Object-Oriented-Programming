@@ -4,6 +4,7 @@ import java.awt.Graphics;
 /**
  * @author Samuel L. Peoples, 1527650
  * Square constructor
+ * previously tested
  */
 public class Square extends Shape implements Cloneable{
 	private int sideLength;

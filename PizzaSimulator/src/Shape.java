@@ -4,6 +4,7 @@ import java.awt.Graphics;
 /**
  * @author Samuel L. Peoples
  * Shape object constructor
+ * previously tested
  */
 abstract class Shape extends Object implements Cloneable{
 	private int x = 0;

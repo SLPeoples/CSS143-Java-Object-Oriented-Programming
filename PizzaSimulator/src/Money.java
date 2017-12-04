@@ -119,7 +119,7 @@ public class Money implements Comparable<Money>, Cloneable, Serializable{
 	 * @return String local to class
 	 */
 	public String toString(){
-		while(this.cents>100){
+		while(this.cents>=100){
 			this.cents -= 100;
 			this.dollars += 1;
 		}

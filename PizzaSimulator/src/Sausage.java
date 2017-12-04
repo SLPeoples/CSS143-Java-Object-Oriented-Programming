@@ -20,4 +20,15 @@ public class Sausage extends Meat{
 	public Sausage(String desc, Money cst, int calrs){
 		super(desc,cst,calrs);
 	}
+	/**
+	 * Main for testing methods
+	 * @param args
+	 */
+	public static void main(String args[]){
+		Sausage empty = new Sausage();
+		Sausage notEmpty = new Sausage("notEmpty",new Money(1,1),300);
+		Sausage notEmpty2 = new Sausage("notEmpty",new Money(1,1),300);
+		System.out.println(empty.toString()+"\n"+notEmpty.toString()+"\n" +notEmpty2.toString()+"\n" );
+		System.out.println(empty.equals(notEmpty)+"\n" +notEmpty.equals(notEmpty2));
+	}
 }

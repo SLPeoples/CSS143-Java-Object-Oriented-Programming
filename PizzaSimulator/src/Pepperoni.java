@@ -20,4 +20,15 @@ public class Pepperoni extends Meat{
 	public Pepperoni(String desc, Money cst, int calrs){
 		super(desc,cst,calrs);
 	}
+	/**
+	 * Main for testing methods
+	 * @param args
+	 */
+	public static void main(String args[]){
+		Pepperoni empty = new Pepperoni();
+		Pepperoni notEmpty = new Pepperoni("notEmpty",new Money(1,1),300);
+		Pepperoni notEmpty2 = new Pepperoni("notEmpty",new Money(1,1),300);
+		System.out.println(empty.toString()+"\n"+notEmpty.toString()+"\n" +notEmpty2.toString()+"\n" );
+		System.out.println(empty.equals(notEmpty)+"\n" +notEmpty.equals(notEmpty2));
+	}
 }

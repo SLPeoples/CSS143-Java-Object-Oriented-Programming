@@ -1,9 +1,10 @@
+import java.awt.Color;
 
 /**
  * @author Samuel L. Peoples
  * Ingrediate superclass
  */
-public class Ingredient implements Comparable<Ingredient>{
+public abstract class Ingredient implements Comparable<Ingredient>{
 	private String description;
 	private Money cost;
 	private int calories;
@@ -106,6 +107,39 @@ public class Ingredient implements Comparable<Ingredient>{
 		return this.getCost().compareTo(other.getCost());
 	}
 
+	public static void main(String args[]){
+		Ingredient[] ingredients = new Ingredient[15];
+		ingredients[0] = new Meat();
+		ingredients[0].setDescription("a");
+		ingredients[0].setCost(new Money(10,25));
+		ingredients[0].setCalories(25);
+		ingredients[1] = new Meat("b",new Money(25,19), 65);
+		ingredients[2]= new Base("c", new Money(10,10), 100);
+		ingredients[3]= new Marinara("d", new Money(10,20), 200);
+		ingredients[4]= new Alfredo("e", new Money(10,30), 300);
+		ingredients[5]= new Cheese("f", new Money(10,40), 400);
+		ingredients[6]= new Goat("g", new Money(10,50), 500);
+		ingredients[7]= new Mozzarella("h", new Money(10,60), 600);
+		ingredients[8]= new Meat("i", new Money(10,70), 700);
+		ingredients[9]= new Sausage("j", new Money(10,80), 800);
+		ingredients[10]= new Pepperoni("k", new Money(10,90), 900);
+		ingredients[11]= new Vegetable("l", new Money(11,00), 1000, Color.BLUE);
+		ingredients[12]= new Pepper("m", new Money(10,20), 1100, Color.RED);
+		ingredients[13]= new Olive("n", new Money(10,30), 1200);
+		ingredients[14]= new Olive("n", new Money(10,30), 1200);
+		for(Ingredient ing:ingredients){
+			System.out.println(ing.toString());
+			System.out.println(ing.getDescription());
+			System.out.println(ing.getCalories());
+			System.out.println(ing.getCost());
+		}
+		System.out.println(ingredients[13].compareTo(ingredients[14])+" 0");
+		System.out.println(ingredients[0].compareTo(ingredients[14])+" -1");
+		System.out.println(ingredients[14].compareTo(ingredients[0])+" 1");
+		System.out.println(ingredients[0].equals(ingredients[14])+" False");
+		System.out.println(ingredients[13].equals(ingredients[14])+" True");
+		
+	}
 	
 
 

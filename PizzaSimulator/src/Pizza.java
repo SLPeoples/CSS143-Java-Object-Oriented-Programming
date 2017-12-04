@@ -129,7 +129,15 @@ public class Pizza implements PizzaComparable{
 	 * @return this cost
 	 */
 	public Money getCost(){
-		return this.cost;
+		double temp = this.cost.getMoney();
+		//System.out.println("the cost is: "+temp);
+		double retVal = (temp*this.getRemaining().getNumerator())/this.getRemaining().getDenominator();
+		//System.out.println("the remaining cost is: "+retVal);
+		int numerator = (int) retVal;
+		//System.out.println("the numerator is: "+numerator);
+		int denominator = (int) ((retVal-numerator)*100);
+		//System.out.println("the denominator is: "+denominator);
+		return new Money(numerator, denominator);
 	}
 	
 	/**getter for total calories of the pizza
@@ -219,5 +227,42 @@ public class Pizza implements PizzaComparable{
 				+this.getRemaining()+" with area remaining: "
 				+this.getRemianingArea()+" of shape: "
 				+this.getShape().nameString();
+	}
+	
+	/**
+	 * testing pizzas!
+	 * @param args
+	 */
+	public static void main(String args[]){
+		System.out.println("A:");
+		Pizza a = new Pizza();
+		System.out.println(a.toString());
+		System.out.println("Adding some meat!");
+		a.addIngredient(new Meat("Meat", new Money(25,19), 350));
+		System.out.println(a.toString());
+		a.eatSomePizza(new Fraction(1,2));
+		System.out.println("Eating Half!");
+		System.out.println(a.toString());
+		System.out.println("Eating A Third!");
+		a.eatSomePizza(new Fraction(1,3));
+		System.out.println(a.toString());
+		System.out.println("Eating Half!");
+		a.eatSomePizza(new Fraction(1,2));
+		System.out.println("Eating A Sixth!");
+		a.eatSomePizza(new Fraction(1,6));
+		System.out.println(a.toString());
+		
+		System.out.println("B:");
+		Pizza b = new Pizza();
+		System.out.println(b.toString());
+		System.out.println(b.toString());
+		System.out.println(b.toString());
+		
+		System.out.println("C:");
+		Pizza c = new Pizza();
+		System.out.println(c.toString());
+		
+		System.out.println("b compared to c: " +b.compareTo(c));
+		System.out.println("c compared to b: " +c.compareTo(b));
 	}
 }

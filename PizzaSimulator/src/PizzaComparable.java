@@ -5,6 +5,7 @@
  * This interface can do everything the Comparable interface can and more
  * 
  * Author: Rob Nash
+ * @author Samuel L. Peoples NO CHANGES MADE
  */
 public interface PizzaComparable extends Comparable {  //Example of interface inheritance
 	
