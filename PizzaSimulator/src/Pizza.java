@@ -136,12 +136,13 @@ public class Pizza implements PizzaComparable{
 	 * @return this cost * this remianing
 	 */
 	public Money getCost(){
-		double temp = Math.floor((this.cost.getMoney()*100)/100);
+		double temp = this.cost.getMoney();
 		double retVal = (temp*this.getRemaining().getNumerator())/this.getRemaining().getDenominator();
 		//round the double to get just the int value
 		int dol = (int) retVal;
 		//then take the decimal, move it over two places, and shave off the rest.
-		int cen = (int) ((retVal-dol)*100);
+		double cents = Math.floor((retVal-dol)*100)/100;
+		int cen = (int) ((cents)*100);
 		//100.204348 -> 
 			//dol = int(100.204348) = 100
 				//100.204348 - 100 = .204348
